@@ -1,1 +1,11 @@
-<p>dashboard works!</p>
+<header>
+  <h3>Holiday Gift giving</h3>
+  <p>Select an option form the left</p>
+</header>
+<section>
+  <div class="alert alert-info">
+    <p>You have {{ (model$ | async)?.numberOfUpcomingHolidays }} upcoming holidays!</p>
+    <p>You have {{ (model$ | async)?.numberOfCardsNeeded }} cards to buy and
+      {{ (model$ | async)?.numberOfGiftsNeeded }} gifts to buy.</p>
+  </div>
+</section>

@@ -1,6 +1,7 @@
 import * as fromList from './list.reducer';
 import { ActionReducerMap, createFeatureSelector, createSelector } from '@ngrx/store';
 import { HolidayListItem } from '../models';
+import * as models from '../models';
 
 
 export const featureName = 'giftFeature';
@@ -43,5 +44,16 @@ export const selectPastHolidayList = createSelector(
   selectHolidayListUnfiltered,
   (list) => {
     return list.filter(item => item.date < new Date());
+  }
+);
+
+export const selectDashboardModel = createSelector(
+  selectCurrentHolidayList,
+  h => {
+    return {
+      numberOfUpcomingHolidays: h.length,
+      numberOfCardsNeeded: h.filter(x => x.cardNeeded && !x.cardCompleted).length,
+      numberOfGiftsNeeded: h.filter(x => x.giftNeeded && !x.giftCompleted).length,
+    } as models.DashboardSummary;
   }
 );
