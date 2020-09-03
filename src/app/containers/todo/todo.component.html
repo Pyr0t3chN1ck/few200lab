@@ -1,0 +1,11 @@
+<header>
+  <h2>Todo List</h2>
+</header>
+<section>
+  <app-todo-entry (itemAdded)="addItem($event)"></app-todo-entry>
+</section>
+<section>
+  <app-todo-list caption="Do This Stuff. Or Else."
+                 (itemCompleted)="markComplete($event)"
+                 [items]="todoList"></app-todo-list>
+</section>
