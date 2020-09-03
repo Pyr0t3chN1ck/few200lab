@@ -1,6 +1,7 @@
 export interface HolidayListItem {
   id: string;
-  title: string;
+  name: string;
+  holiday: string;
   date: Date;
   giftNeeded: boolean;
   cardNeeded: boolean;

@@ -4,7 +4,8 @@ import * as actions from '../actions/list-actions';
 
 export interface ListEntity {
   id: string;
-  title: string;
+  name: string;
+  holiday: string;
   date: Date;
   giftNeeded: boolean;
   cardNeeded: boolean;

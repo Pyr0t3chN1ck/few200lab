@@ -12,6 +12,7 @@ import { reducers, featureName } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { HolidayAppEffects } from './effects/app.effects';
 import { ListEffects } from './effects/list.effects';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 const routes: Routes = [
@@ -51,7 +52,8 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     StoreModule.forFeature(featureName, reducers),
-    EffectsModule.forFeature([HolidayAppEffects, ListEffects])
+    EffectsModule.forFeature([HolidayAppEffects, ListEffects]),
+    ReactiveFormsModule,
   ]
 })
 export class GiftsModule { }
