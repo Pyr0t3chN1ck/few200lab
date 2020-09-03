@@ -25,7 +25,8 @@ const reducerFunction = createReducer(
   on(actions.toggleGiftCompleted, (s, a) =>
     adapter.updateOne({ id: a.payload.id, changes: { giftCompleted: !a.payload.giftCompleted } }, s)),
   on(actions.toggleCardCompleted, (s, a) =>
-    adapter.updateOne({ id: a.payload.id, changes: { cardCompleted: !a.payload.cardCompleted } }, s))
+    adapter.updateOne({ id: a.payload.id, changes: { cardCompleted: !a.payload.cardCompleted } }, s)),
+  on(actions.addedHolidayItem, (s, a) => adapter.addOne(a.payload, s)),
 );
 
 export function reducer(state: HolidayState = initialState, action: Action): HolidayState {

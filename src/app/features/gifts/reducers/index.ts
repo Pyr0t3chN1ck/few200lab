@@ -34,7 +34,7 @@ const selectHolidayListUnfiltered = createSelector(
 );
 
 export const selectCurrentHolidayList = createSelector(
-  selectHolidayListUnfiltered,
+  selectAllListItems,
   (list) => {
     return list.filter(item => item.date >= new Date());
   }

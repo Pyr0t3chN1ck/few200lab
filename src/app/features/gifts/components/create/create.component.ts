@@ -30,7 +30,7 @@ export class CreateComponent implements OnInit {
   get giftNeeded(): AbstractControl { return this.form.get('giftNeeded'); }
 
   submit(): void {
-    // this.store.dispatch(actions.addedHolidayItem(this.form.value));
+    this.store.dispatch(actions.addedHolidayItem(this.form.value));
     this.form.reset();
   }
 }

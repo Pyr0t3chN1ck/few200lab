@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 import { ListEntity } from '../reducers/list.reducer';
-const currentId = 0;
+let currentId = 0;
 
 export const loadHolidayData = createAction(
   '[holiday] loading holiday data'
@@ -19,4 +19,17 @@ export const toggleGiftCompleted = createAction(
 export const toggleCardCompleted = createAction(
   '[holiday] toggle card completed',
   props<{ payload: ListEntity }>()
+);
+
+export const addedHolidayItem = createAction(
+  '[holiday] holiday item added',
+  ({ name, holiday, date, cardNeeded, giftNeeded }:
+    { name: string, holiday: string, date: Date, cardNeeded: boolean, giftNeeded: boolean }) => ({
+      payload: {
+        name, holiday, date, cardNeeded, giftNeeded,
+        giftCompleted: false,
+        cardCompleted: false,
+        id: 'TEMP' + currentId++
+      } as ListEntity
+    })
 );
